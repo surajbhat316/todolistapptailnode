@@ -1,0 +1,43 @@
+@media screen and (max-width: 768px) {
+    
+    #todoCreator{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    #todoCreator div{
+        margin: 0.5rem;
+    }
+
+    #todoCreator div input{
+        width: 90vw;
+        height: 5vh;
+    }
+
+    #todoCreator div button{
+        height: auto;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+
+    
+    #newTodos .todoItem{
+        width: 80vw;
+    }
+
+    #newTodos .todoItem .todoDescription{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #completedTodos .completedTodo{
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
