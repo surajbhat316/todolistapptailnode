@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "./TodoList.css";
 import "./TodoList_media.css";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function TodoList() {
     
 
@@ -35,7 +38,7 @@ export default function TodoList() {
             setTodos([newTodo, ...todos] );
             localStorage.setItem("todos", JSON.stringify([newTodo, ...todos]));
             e.target.value = ""
-
+            toast("Todo Item Added successfully !")
         }
 
     }
@@ -51,11 +54,13 @@ export default function TodoList() {
 
         setTodos([...availableTodos]);
         localStorage.setItem("todos", JSON.stringify([...availableTodos]));
+        toast("Todo Item Marked as Completed !")
     }
 
     function handleResetTodos(){
         setTodos([]);
         localStorage.setItem("todos", JSON.stringify([]));
+        toast("Todo List Reset !")
     }
     return (
         <div>

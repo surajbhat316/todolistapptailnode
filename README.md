@@ -1,3 +1,37 @@
+<h1>Todo List Application</h1>
+<p>To run this application perform the following steps</p>
+
+<ul>
+    <li>
+        Create a new folder and open that folder in a terminal.
+    </li>
+    <li>
+        Run git init to initialize a new repository.
+    </li>
+    <li>
+        Run git branch -M main
+    </li>
+    <li>
+        Run git remote add origin https://github.com/surajbhat316/todolistapptailnode.git
+    </li>
+    <li>
+        Run git pull https://github.com/surajbhat316/todolistapptailnode.git
+    </li>
+    <li>
+        The above line of code will get all the files from the repository to the folder you created initially
+    </li>
+    <li>
+        Run npm install to get all the dependencies
+    </li>
+    <li>
+        Run npm start and the app should be running
+    </li>
+</ul>
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
