@@ -1,0 +1,87 @@
+body{
+    font-family: monospace;
+}
+#todoCreator{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#todoCreator div input{
+    width: 40vw;
+    height: 10vh;
+    font-size: x-large;
+    border-radius: 1rem;
+    color: rgb(198, 144, 44);
+    padding: 0.2rem;
+}
+
+#todoCreator div button{
+    height: 10.5vh;
+    font-size: x-large;
+    margin-left: 1rem;
+    background-color: rgb(88, 85, 90);
+    color: wheat;
+    border-radius: 0.5rem;
+}
+
+#newTodos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todoItem{
+    width: 40vw;
+    height: auto;
+    font-size: larger;
+    box-shadow: 0px 0px 19px 0px lightgrey;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+
+.todoItem .todoDescription{
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoItem .btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.todoItem .btnContainer button{
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: grey;
+    color: wheat;
+}
+
+
+/* Completed Todos */
+
+#completedTodos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#completedTodos .completedTodo{
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    height: auto;
+    font-size: larger;
+    box-shadow: 0px 0px 19px 0px lightgrey;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+h3{
+    font-size: 1.5rem;
+}

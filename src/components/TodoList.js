@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "./TodoList.css";
 
 export default function TodoList() {
     
@@ -57,19 +58,25 @@ export default function TodoList() {
     }
     return (
         <div>
-            <input onKeyUp={handleKeyUp} type='text' placeholder='Enter todo title' />
-            <button onClick={handleResetTodos}>Reset Todos</button>
-            <h3>Pending Todos</h3>
+            <div id='todoCreator'>
+                <div>
+                    <input onKeyUp={handleKeyUp} type='text' placeholder='Enter todo title' />
+                </div>
+                <div>
+                    <button onClick={handleResetTodos}>Reset Todos</button>
+                </div>
+            </div>
+            <h3 style={{textAlign: "center"}}>Pending Todos</h3>
             <div id='newTodos'>
                 {todos.map((todo) =>{
                     if(!todo.isCompleted){
                         return (
-                            <div key={todo.createdOn}>
-                                <div>
+                            <div className='todoItem' key={todo.createdOn}>
+                                <div className='todoDescription'>
                                     <p>{todo.title}</p>
                                     <p>Status <b> Incomplete</b> </p>
                                 </div>
-                                <div>
+                                <div className='btnContainer'>
                                     <button onClick={(e) => handleMarkAsComplete(e, todo.createdOn)}>Mark as Complete</button>
                                 </div>
                             </div>
@@ -80,12 +87,12 @@ export default function TodoList() {
             </div>
 
 
-            <h3>Completed Todos</h3>
+            <h3 style={{textAlign : "center"}}>Completed Todos</h3>
             <div id='completedTodos'>
                 {todos.map((todo) =>{
                     if(todo.isCompleted){
                         return (
-                            <div key={todo.createdOn}>
+                            <div className='completedTodo' key={todo.createdOn}>
                                 <p>{todo.title}</p>
                                 <p>Status <b> Completed</b> </p>
                             </div>
