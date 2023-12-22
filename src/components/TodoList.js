@@ -9,17 +9,21 @@ export default function TodoList() {
     
 
     const [todos, setTodos] = useState([]);
+    const [completedTodos, setCompletedTodos] = useState([]);
 
     useEffect(() =>{
-        if(localStorage.getItem("todos")){
+        if(localStorage.getItem("todos") && localStorage.getItem("completedTodos")){
             console.log("Enters TodoList")
             let todosList = JSON.parse(localStorage.getItem("todos"));
+            let completedTodoList = JSON.parse(localStorage.getItem("completedTodos"));
             console.log(todosList)
             setTodos([...todosList]);
+            setCompletedTodos([...completedTodoList]);
         }
         else{
             console.log("Enters Else")
             localStorage.setItem("todos", JSON.stringify([]));
+            localStorage.setItem("completedTodos", JSON.stringify([]));
         }
     }, []);
 
@@ -46,20 +50,26 @@ export default function TodoList() {
     function handleMarkAsComplete(e, createdOn){
         console.log(createdOn)
         let availableTodos = [...todos];
+        let compTodos = [...completedTodos];
         availableTodos.forEach((todo) => {
             if(todo.createdOn === createdOn){
                 todo.isCompleted = true;
+                compTodos = [todo, ...compTodos];
             }
         })
 
         setTodos([...availableTodos]);
+        setCompletedTodos([...compTodos])
         localStorage.setItem("todos", JSON.stringify([...availableTodos]));
+        localStorage.setItem("completedTodos", JSON.stringify([...compTodos]))
         toast("Todo Item Marked as Completed !")
     }
 
     function handleResetTodos(){
         setTodos([]);
+        setCompletedTodos([])
         localStorage.setItem("todos", JSON.stringify([]));
+        localStorage.setItem("completedTodos", JSON.stringify([]));
         toast("Todo List Reset !")
     }
     return (
@@ -95,7 +105,7 @@ export default function TodoList() {
 
             <h3 style={{textAlign : "center"}}>Completed Todos</h3>
             <div id='completedTodos'>
-                {todos.map((todo) =>{
+                {completedTodos.map((todo) =>{
                     if(todo.isCompleted){
                         return (
                             <div className='completedTodo' key={todo.createdOn}>
