@@ -32,6 +32,7 @@ export default function TodoList() {
 
             setTodos([newTodo, ...todos] );
             localStorage.setItem("todos", JSON.stringify([newTodo, ...todos]));
+            e.target.value = ""
 
         }
 
@@ -49,10 +50,15 @@ export default function TodoList() {
         setTodos([...availableTodos]);
         localStorage.setItem("todos", JSON.stringify([...availableTodos]));
     }
+
+    function handleResetTodos(){
+        setTodos([]);
+        localStorage.setItem("todos", JSON.stringify([]));
+    }
     return (
         <div>
             <input onKeyUp={handleKeyUp} type='text' placeholder='Enter todo title' />
-
+            <button onClick={handleResetTodos}>Reset Todos</button>
             <h3>Pending Todos</h3>
             <div id='newTodos'>
                 {todos.map((todo) =>{
